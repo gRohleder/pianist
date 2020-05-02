@@ -1,0 +1,42 @@
+{
+    "name": "Score",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "howToPlay",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "level",
+            "fieldType": "LEVEL",
+            "fieldValues": "BEGINNER,INTERMEDIATE,ADVANCED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pianist",
+            "otherEntityRelationshipName": "score",
+            "relationshipName": "pianist",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200502150300",
+    "entityTableName": "score",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

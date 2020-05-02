@@ -1,0 +1,35 @@
+entity Pianist {
+	number Integer
+}
+
+entity Score{
+	name String,
+    creator String,
+    howToPlay Boolean
+    level LEVEL
+}
+
+entity Course{
+	name String
+    teacher String
+}
+
+entity Entry{
+	name String
+}
+enum LEVEL {
+    BEGINNER, INTERMEDIATE, ADVANCED
+}
+
+relationship OneToMany {
+	Pianist to Score
+}
+
+relationship OneToMany {
+	Pianist to Entry
+}
+
+relationship OneToMany {
+	Course to Entry
+}
+

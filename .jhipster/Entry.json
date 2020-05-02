@@ -1,0 +1,36 @@
+{
+    "name": "Entry",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pianist",
+            "otherEntityRelationshipName": "entry",
+            "relationshipName": "pianist",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "course",
+            "otherEntityRelationshipName": "entry",
+            "relationshipName": "course",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200502150500",
+    "entityTableName": "entry",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

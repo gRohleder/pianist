@@ -1,0 +1,34 @@
+{
+    "name": "Pianist",
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "score",
+            "otherEntityRelationshipName": "pianist",
+            "relationshipName": "score"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "entry",
+            "otherEntityRelationshipName": "pianist",
+            "relationshipName": "entry"
+        }
+    ],
+    "changelogDate": "20200502150200",
+    "entityTableName": "pianist",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

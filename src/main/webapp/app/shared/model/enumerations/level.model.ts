@@ -1,0 +1,5 @@
+export const enum LEVEL {
+  BEGINNER = 'BEGINNER',
+  INTERMEDIATE = 'INTERMEDIATE',
+  ADVANCED = 'ADVANCED'
+}
