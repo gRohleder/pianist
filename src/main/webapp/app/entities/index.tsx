@@ -8,6 +8,7 @@ import Pianist from './pianist';
 import Score from './score';
 import Course from './course';
 import Entry from './entry';
+import Search from './search';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -18,6 +19,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}score`} component={Score} />
       <ErrorBoundaryRoute path={`${match.url}course`} component={Course} />
       <ErrorBoundaryRoute path={`${match.url}entry`} component={Entry} />
+	  <ErrorBoundaryRoute path={`${match.url}search`} component={Search} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>
