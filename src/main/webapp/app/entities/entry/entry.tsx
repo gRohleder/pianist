@@ -48,8 +48,8 @@ export const Entry = (props: IEntryProps) => {
                     </Button>
                   </td>
                   <td>{entry.name}</td>
-                  <td>{entry.pianist ? <Link to={`pianist/${entry.pianist.id}`}>{entry.pianist.id}</Link> : ''}</td>
-                  <td>{entry.course ? <Link to={`course/${entry.course.id}`}>{entry.course.id}</Link> : ''}</td>
+                  <td>{entry.pianist ? <Link to={`pianist/${entry.pianist.id}`}>{entry.pianist.number}</Link> : ''}</td>
+                  <td>{entry.course ? <Link to={`course/${entry.course.id}`}>{entry.course.name}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${entry.id}`} color="info" size="sm">

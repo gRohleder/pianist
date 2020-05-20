@@ -106,7 +106,7 @@ export const EntryUpdate = (props: IEntryUpdateProps) => {
                   {courses
                     ? courses.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}({otherEntity.id})
                         </option>
                       ))
                     : null}

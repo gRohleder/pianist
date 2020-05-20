@@ -114,6 +114,7 @@ public class Course implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", teacher='" + getTeacher() + "'" +
+            ", entries='" + getEntries() + "'" +
             "}";
     }
 }
