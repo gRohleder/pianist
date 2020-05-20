@@ -18,6 +18,8 @@ export const CourseDetail = (props: ICourseDetailProps) => {
   }, []);
 
   const { courseEntity } = props;
+
+
   return (
     <Row>
       <Col md="8">
@@ -33,6 +35,12 @@ export const CourseDetail = (props: ICourseDetailProps) => {
             <span id="teacher">Teacher</span>
           </dt>
           <dd>{courseEntity.teacher}</dd>
+		  <dt>
+			<span id="entries">Entries</span>
+			</dt>
+			<dd>
+					{courseEntity && courseEntity.entries ? courseEntity.entries.length : "not yet loaded"}
+			</dd>
         </dl>
         <Button tag={Link} to="/course" replace color="info">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
