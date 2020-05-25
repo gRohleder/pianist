@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col } from 'reactstrap';
+import { Button, Row, Col, Table } from 'reactstrap';
 import { ICrudGetAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -10,52 +10,69 @@ import { getEntity } from './course.reducer';
 import { ICourse } from 'app/shared/model/course.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
-export interface ICourseDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface ICourseDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> { }
 
 export const CourseDetail = (props: ICourseDetailProps) => {
-  useEffect(() => {
-    props.getEntity(props.match.params.id);
-  }, []);
+	useEffect(() => {
+		props.getEntity(props.match.params.id);
+	}, []);
 
-  const { courseEntity } = props;
+	const { courseEntity } = props;
 
 
-  return (
-    <Row>
-      <Col md="8">
-        <h2>
-          Course [<b>{courseEntity.id}</b>]
-        </h2>
-        <dl className="jh-entity-details">
-          <dt>
-            <span id="name">Name</span>
-          </dt>
-          <dd>{courseEntity.name}</dd>
-          <dt>
-            <span id="teacher">Teacher</span>
-          </dt>
-          <dd>{courseEntity.teacher}</dd>
-		  <dt>
-			<span id="entries">Entries</span>
-			</dt>
-			<dd>
-					{courseEntity && courseEntity.entries ? courseEntity.entries.length : "not yet loaded"}
-			</dd>
-        </dl>
-        <Button tag={Link} to="/course" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
-        </Button>
+	return (
+		<Row>
+			<Col md="8">
+				<h2>
+					Course [<b>{courseEntity.id}</b>]
+        		</h2>
+				<dl className="jh-entity-details">
+					<dt>
+						<span id="name">Name</span>
+					</dt>
+					<dd>{courseEntity.name}</dd>
+					<dt>
+						<span id="teacher">Teacher</span>
+					</dt>
+					<dd>{courseEntity.teacher}</dd>
+					<dt>
+						<span id="entries">Entries</span>
+					</dt>
+					<dd>
+						<Table>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Pianist</th>
+									<th />
+								</tr>
+							</thead>
+							<tbody>
+								{courseEntity.entries ? courseEntity.entries.map((entry) => (
+									<tr key={entry.id}>
+										<td>{entry.name}</td>
+										<td>{entry.pianist.number}</td>
+									</tr>
+									
+								)) : "not yet loaded"}
+							</tbody>
+						</Table>
+					</dd>
+				</dl>
+				<Button tag={Link} to="/course" replace color="info">
+					<FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+				</Button>
         &nbsp;
         <Button tag={Link} to={`/course/${courseEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-        </Button>
-      </Col>
-    </Row>
-  );
+					<FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+				</Button>
+			</Col>
+		</Row>
+	);
 };
 
 const mapStateToProps = ({ course }: IRootState) => ({
-  courseEntity: course.entity
+	courseEntity: course.entity
 });
 
 const mapDispatchToProps = { getEntity };
