@@ -9,6 +9,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './course.reducer';
 import { ICourse } from 'app/shared/model/course.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import Entry from './entity';
 
 export interface ICourseDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> { }
 
@@ -39,24 +40,7 @@ export const CourseDetail = (props: ICourseDetailProps) => {
 						<span id="entries">Entries</span>
 					</dt>
 					<dd>
-						<Table>
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Pianist</th>
-									<th />
-								</tr>
-							</thead>
-							<tbody>
-								{courseEntity.entries ? courseEntity.entries.map((entry) => (
-									<tr key={entry.id}>
-										<td>{entry.name}</td>
-										<td>{entry.pianist.number}</td>
-									</tr>
-									
-								)) : "not yet loaded"}
-							</tbody>
-						</Table>
+						{courseEntity.entries ? <Entry entries={courseEntity.entries} /> : "not yet loaded"}
 					</dd>
 				</dl>
 				<Button tag={Link} to="/course" replace color="info">
